@@ -28,7 +28,7 @@ jobs:
       run: |
         # stop the build if there are Python syntax errors or undefined names
         echo " linting with autopep8"
-        autopep8 --inp-place --recursive . --aggressive --aggressive --verbose
+        autopep8 --in-place --recursive . --aggressive --aggressive --verbose
         echo " linting complete......."
     - name: Test with pytest
       run: |
