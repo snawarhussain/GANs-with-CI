@@ -1,6 +1,7 @@
 from Network import Generator
 from Network.Generator import get_noise
 from Network.Generator import make_gen_block
+
 """
 Test your make_gen_block() function
 """
@@ -26,21 +27,23 @@ test_gen_noise = get_noise(num_test, gen.z_dim)
 test_uns_gen_noise = gen.unsqueeze_noise(test_gen_noise)
 gen_output = gen(test_uns_gen_noise)
 
+
 # UNIT TESTS
-assert tuple(hidden_output.shape) == (num_test, 20, 4, 4)
-assert hidden_output.max() > 1
-assert hidden_output.min() == 0
-assert hidden_output.std() > 0.2
-assert hidden_output.std() < 1
-assert hidden_output.std() > 0.5
+def test_outputs():
+    assert tuple(hidden_output.shape) == (num_test, 20, 4, 4)
+    assert hidden_output.max() > 1
+    assert hidden_output.min() == 0
+    assert hidden_output.std() > 0.2
+    assert hidden_output.std() < 1
+    assert hidden_output.std() > 0.5
 
-assert tuple(
-    test_hidden_block_stride(hidden_output).shape) == (
-        num_test, 20, 10, 10)
+    assert tuple(
+        test_hidden_block_stride(hidden_output).shape) == (
+               num_test, 20, 10, 10)
 
-assert final_output.max().item() == 1
-assert final_output.min().item() == -1
+    assert final_output.max().item() == 1
+    assert final_output.min().item() == -1
 
-assert tuple(gen_output.shape) == (num_test, 1, 28, 28)
-assert gen_output.std() > 0.5
-assert gen_output.std() < 0.8
+    assert tuple(gen_output.shape) == (num_test, 1, 28, 28)
+    assert gen_output.std() > 0.5
+    assert gen_output.std() < 0.8
