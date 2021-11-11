@@ -17,9 +17,7 @@ transform = transforms.Compose([
 ])
 
 dataloader = DataLoader(
-    MNIST('.', download=False, transform=transform),
-    batch_size=batch_size,
-    shuffle=True)
+    MNIST('.', download=False, transform=transform),batch_size=batch_size, shuffle=True)
 
 real, label = next(iter(dataloader))
 show_tensor_images(real)
