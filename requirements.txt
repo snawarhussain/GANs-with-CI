@@ -1,4 +1,6 @@
 matplotlib>=3.3.4
-torch>=1.6.0
-torchvision>=0.7.0
 numpy>=1.19.2
+-f https://download.pytorch.org/whl/torch_stable.html 
+torch~=1.6.0+cpu 
+-f https://download.pytorch.org/whl/torch_stable.html
+torchvision~=0.7.0+cpu
