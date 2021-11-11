@@ -1,7 +1,6 @@
 from abc import ABC
 
 import torch.nn as nn
-import numpy
 import torch.random
 
 
