@@ -31,11 +31,7 @@ def make_gen_block(input_channels,
     if not final_layer:
         return nn.Sequential(
 
-            nn.ConvTranspose2d(
-                input_channels,
-                output_channels,
-                kernel_size,
-                stride),
+            nn.ConvTranspose2d(input_channels,output_channels,kernel_size,stride),
             nn.BatchNorm2d(output_channels),
             nn.ReLU(inplace=True)
 
