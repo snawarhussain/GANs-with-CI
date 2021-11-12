@@ -52,7 +52,9 @@ def test_outputs():
 
 
 def test_loading():
-    PATH = "..//prediction//generator.pt"
+    PATH = os.path.abspath(os.path.join(os.path.dirname(__file__)
+                                        , '..',
+                                        'prediction/generator.pt'))
     assert os.path.exists(PATH), True
     model = load_gen_model(PATH, device='cpu')
     assert model is not None
