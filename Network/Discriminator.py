@@ -40,13 +40,13 @@ class Discriminator(nn.Module, ABC):
         # Build the neural block
         if not final_layer:
             return nn.Sequential(
-                #### START CODE HERE #### #
-                #### END CODE HERE ####
+                nn.Conv2d(input_channels, output_channels, kernel_size, stride),
+                nn.BatchNorm2d(output_channels),
+                nn.LeakyReLU(0.2)
             )
         else:  # Final Layer
             return nn.Sequential(
-                #### START CODE HERE #### #
-                #### END CODE HERE ####
+                nn.Conv2d(input_channels, output_channels, kernel_size, stride),
             )
 
     '''
