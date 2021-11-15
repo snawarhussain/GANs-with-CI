@@ -1,6 +1,8 @@
 from Network import Generator
 from Network.Generator import get_noise
 from Network.Generator import make_gen_block
+from prediction.predict import load_gen_model
+import os
 
 """
 Test your make_gen_block() function
@@ -47,3 +49,12 @@ def test_outputs():
     assert tuple(gen_output.shape) == (num_test, 1, 28, 28)
     assert gen_output.std() > 0.5
     assert gen_output.std() < 0.8
+
+
+def test_loading():
+    PATH = os.path.abspath(os.path.join(os.path.dirname(__file__)
+                                        , '..',
+                                        'prediction/generator.pt'))
+    assert os.path.exists(PATH), True
+    model = load_gen_model(PATH, device='cpu')
+    assert model is not None

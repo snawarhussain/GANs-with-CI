@@ -1,7 +1,7 @@
 from abc import ABC
 
 import torch.nn as nn
-import torch.random
+from torch import randn
 
 
 def make_gen_block(input_channels,
@@ -108,6 +108,6 @@ def get_noise(n_samples, z_dim, device='cpu'):
     Parameters:
         n_samples: the number of samples to generate, a scalar
         z_dim: the dimension of the noise vector, a scalar
-        device: the device type
+        device: the DEVICE type
     """
-    return torch.randn(n_samples, z_dim, device=device)
+    return randn(n_samples, z_dim, device=device)
